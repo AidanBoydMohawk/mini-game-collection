@@ -35,6 +35,13 @@ namespace MiniGameCollection.Games2024.Team02
             // Apply movement to the capsule
             transform.Translate(movement * speed * Time.deltaTime, Space.World);
 
+            // Make the capsule face the direction of movement
+            if (movement.magnitude > 0)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(movement);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10.0f); // Adjust rotation speed as needed
+            }
+
             // Check for jump input
             if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
             {
