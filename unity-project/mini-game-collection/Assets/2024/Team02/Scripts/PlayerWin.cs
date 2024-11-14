@@ -23,12 +23,12 @@ namespace MiniGameCollection.Games2024.Team02
         {
             if (player1 > player2)
             {
-                wintext.text = player1.ToString() + " PLAYER 1 WINS WITH " + player1 + " POINTs";
+                wintext.text = "PLAYER 1 WINS WITH " + player1 + " POINTS";
             }
 
             if (player2 > player1)
             {
-                wintext.text = player2.ToString() + " PLAYER 2 WINS ";
+                wintext.text = "PLAYER 2 WINS WITH " + player2 + "POINTS";
             }
         }
     }
