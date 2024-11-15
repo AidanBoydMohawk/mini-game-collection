@@ -374,7 +374,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   jumpSpeed: 5
+  ballPrefab: {fileID: 5944473372434884980, guid: af7b78dfb433cfb4c8d92bd8d5aabb41,
+    type: 3}
+  ballSpeed: 20
+  pushForce: 20
   isGrounded: 0
+  audioSource: {fileID: 137367835}
+  jumpSound: {fileID: 8300000, guid: d471b2c3d6b50c94fb6a7fc627369683, type: 3}
+  ballShootSound: {fileID: 8300000, guid: b33a4dd28f4b141479327f03a11f773b, type: 3}
+  walkingSound: {fileID: 8300000, guid: 7ba01daa72b3bd6479bebe803b5e4e21, type: 3}
+  yumSound1: {fileID: 8300000, guid: b2a22158198d18548ace84e4f83bbf4e, type: 3}
+  yumSound2: {fileID: 8300000, guid: dd8c029451164984bbc6ef44d1c8cd27, type: 3}
 --- !u!136 &111079616
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -481,8 +491,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeb4ed5fb518a72499a3e13f00f40031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ballprefab: {fileID: 5944473372434884980, guid: af7b78dfb433cfb4c8d92bd8d5aabb41,
+    type: 3}
+  ballprefab2: {fileID: 5944473372434884980, guid: a1c2c82b10610ce41b9bb9ed9f389aae,
+    type: 3}
   ScoreText: {fileID: 518603361}
   score: 0
+  audioSource: {fileID: 137367835}
+  yumSound1: {fileID: 8300000, guid: b2a22158198d18548ace84e4f83bbf4e, type: 3}
+  yumSound2: {fileID: 8300000, guid: dd8c029451164984bbc6ef44d1c8cd27, type: 3}
 --- !u!65 &111079621
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -516,6 +533,7 @@ GameObject:
   - component: {fileID: 137367832}
   - component: {fileID: 137367831}
   - component: {fileID: 137367834}
+  - component: {fileID: 137367835}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -641,6 +659,102 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!82 &137367835
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137367830}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &182959158
 GameObject:
   m_ObjectHideFlags: 0
@@ -2560,7 +2674,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &941424256
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4017,7 +4131,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   jumpSpeed: 5
+  ballPrefab: {fileID: 5944473372434884980, guid: a1c2c82b10610ce41b9bb9ed9f389aae,
+    type: 3}
+  ballSpeed: 20
+  pushForce: 20
   isGrounded: 0
+  audioSource: {fileID: 137367835}
+  jumpSound: {fileID: 8300000, guid: d471b2c3d6b50c94fb6a7fc627369683, type: 3}
+  ballShootSound: {fileID: 8300000, guid: b33a4dd28f4b141479327f03a11f773b, type: 3}
+  walkingSound: {fileID: 8300000, guid: 7ba01daa72b3bd6479bebe803b5e4e21, type: 3}
+  yumSound1: {fileID: 8300000, guid: b2a22158198d18548ace84e4f83bbf4e, type: 3}
+  yumSound2: {fileID: 8300000, guid: dd8c029451164984bbc6ef44d1c8cd27, type: 3}
 --- !u!114 &1602042934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4030,8 +4154,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6aa854fdb917124abbcae265720b24b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ballprefab: {fileID: 5944473372434884980, guid: af7b78dfb433cfb4c8d92bd8d5aabb41,
+    type: 3}
+  ballprefab2: {fileID: 5944473372434884980, guid: af7b78dfb433cfb4c8d92bd8d5aabb41,
+    type: 3}
   ScoreText: {fileID: 575020714}
   score: 0
+  audioSource: {fileID: 137367835}
+  yumSound1: {fileID: 8300000, guid: b2a22158198d18548ace84e4f83bbf4e, type: 3}
+  yumSound2: {fileID: 8300000, guid: dd8c029451164984bbc6ef44d1c8cd27, type: 3}
 --- !u!1 &1637162689
 GameObject:
   m_ObjectHideFlags: 0
