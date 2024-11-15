@@ -12,6 +12,8 @@ We envisioned a game that is slightly chaotic in nature. We envision a game that
 
 **Cite all resources, tangible, informative, and transformative**. Cite all resources used in planning and development including the basis project, assets, guides, tutorials, and use of generative AI.
 
+All cooding was done by either ourself or the collaborative efforts of the team. The only part that has any exteneral help was the prefab shooting script and the tag convention.
+
 [https://www.youtube.com/watch?v=bIM3VAiZHeQ](https://www.youtube.com/watch?v=bIM3VAiZHeQ)
 
 [https://www.youtube.com/watch?v=hxpUk0qiRGs](https://www.youtube.com/watch?v=hxpUk0qiRGs)
