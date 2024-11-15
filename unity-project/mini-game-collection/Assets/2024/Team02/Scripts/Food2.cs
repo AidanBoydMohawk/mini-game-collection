@@ -29,11 +29,13 @@ namespace MiniGameCollection.Games2024.Team02
 
         public void OnTriggerEnter(Collider collider)
         {
-            Debug.Log(collider);
-            score += 1;
+            if (collider.gameObject.name != "Player1" && collider.transform.root.name != "Player1" && collider.gameObject.name != "Wall" && collider.transform.root.name != "Wall")
+            {
+            score += 1; // add score
             PlayerWin.player2 += 1;
-            Destroy(collider.gameObject);
-            transform.localScale += new Vector3(.01f, .01f, .01f);
+            Destroy(collider.gameObject); // Destroy object
+            transform.localScale += new Vector3(.01f, .01f, .01f); // grow bigger
+            }
         }
     }
 }

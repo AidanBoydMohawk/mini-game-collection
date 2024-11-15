@@ -39,11 +39,14 @@ namespace MiniGameCollection.Games2024.Team02
             if (movement.magnitude > 0)
             {
                 Quaternion targetRotation = Quaternion.LookRotation(movement);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10.0f); // Adjust rotation speed as needed
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10.0f);
             }
 
-            // Check for jump input
-            if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+            // Check if player is grounded based on vertical speed
+            isGrounded = Mathf.Abs(rb.velocity.y) < 0.01f;
+
+            // Check for jump input using custom action "P1_Action1"
+            if (Input.GetButtonDown("P1_Action1") && isGrounded)
             {
                 Jump();
             }
@@ -53,25 +56,6 @@ namespace MiniGameCollection.Games2024.Team02
         {
             // Apply an upward force if grounded
             rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
-            isGrounded = false;
-        }
-
-        private void OnCollisionStay(Collision collision)
-        {
-            // Check if touching the ground
-            if (collision.collider.CompareTag("Ground"))
-            {
-                isGrounded = true;
-            }
-        }
-
-        private void OnCollisionExit(Collision collision)
-        {
-            // Reset grounded state when leaving the ground
-            if (collision.collider.CompareTag("Ground"))
-            {
-                isGrounded = false;
-            }
         }
     }
 }
